@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HDMI on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/tags/hdmi/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/tags/hdmi/</link>
     <description>Recent content in HDMI on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/hdmi/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/tags/hdmi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>USB to Dual HDMI Converter (HDMI Dock)</title>
-      <link>https://nikhilkakade.github.io/projects/1k_usb_dock/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/1k_usb_dock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/1k_usb_dock/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/1k_usb_dock/</guid>
       <description>USB3.0 to Dual 4K HDMI Output Display Dock </description>
     </item>
     
     <item>
       <title>HDMI DDC Brightness &amp; Contrast Control</title>
-      <link>https://nikhilkakade.github.io/blog/ddc_brightness_control/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ddc_brightness_control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/ddc_brightness_control/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ddc_brightness_control/</guid>
       <description>Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands</description>
     </item>
     

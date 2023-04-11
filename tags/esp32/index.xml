@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ESP32 on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/tags/esp32/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/tags/esp32/</link>
     <description>Recent content in ESP32 on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>10 Channel Voltage and Current IoT Data Logger</title>
-      <link>https://nikhilkakade.github.io/products/10-ch-iot-datalogger/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/products/10-ch-iot-datalogger/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/products/10-ch-iot-datalogger/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/products/10-ch-iot-datalogger/</guid>
       <description>GSM based IoT 10 channel voltage and current datalogger</description>
     </item>
     
     <item>
       <title>EV Charging HUB (Chargie)</title>
-      <link>https://nikhilkakade.github.io/products/ev-charging-station/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/products/ev-charging-station/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/products/ev-charging-station/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/products/ev-charging-station/</guid>
       <description>IoT Based Electric Vehicle Charging Station</description>
     </item>
     
     <item>
       <title>IoT based Energy Metering</title>
-      <link>https://nikhilkakade.github.io/projects/energy-metering/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/energy-metering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/energy-metering/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/energy-metering/</guid>
       <description>Device measured the energy consumed and send the data on cloud server</description>
     </item>
     

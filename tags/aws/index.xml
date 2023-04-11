@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AWS on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/tags/aws/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/tags/aws/</link>
     <description>Recent content in AWS on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CP2102 custom driver name</title>
-      <link>https://nikhilkakade.github.io/blog/cp2102-custom-driver/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/cp2102-custom-driver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/cp2102-custom-driver/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/cp2102-custom-driver/</guid>
       <description>change cp2102 driver name</description>
     </item>
     
     <item>
       <title>I passed the AWS DVA Certification Exam</title>
-      <link>https://nikhilkakade.github.io/blog/aws-dva-certification/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-dva-certification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/aws-dva-certification/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-dva-certification/</guid>
       <description>How I passed the AWS Developer - Associate Certification Exam (DVA-C02)</description>
     </item>
     
     <item>
       <title>I passed the AWS SAA Certification Exam</title>
-      <link>https://nikhilkakade.github.io/blog/aws-saa-certification/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-saa-certification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/aws-saa-certification/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-saa-certification/</guid>
       <description>How I passed the AWS Solutions Architect-Associate Certification Exam</description>
     </item>
     
     <item>
       <title>Obsidian Publish using GitHub Action</title>
-      <link>https://nikhilkakade.github.io/products/theme-project/obsidian-publish-github-action/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/products/theme-project/obsidian-publish-github-action/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/products/theme-project/obsidian-publish-github-action/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/products/theme-project/obsidian-publish-github-action/</guid>
       <description>A custom GitHub Action to publish Obsidian notes as a website</description>
     </item>
     
     <item>
       <title>Backend Engineer</title>
-      <link>https://nikhilkakade.github.io/experience/buyerassist/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/experience/buyerassist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/experience/buyerassist/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/experience/buyerassist/</guid>
       <description>BuyerAssist (India)</description>
     </item>
     

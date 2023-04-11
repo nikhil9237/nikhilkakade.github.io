@@ -2,70 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Audio on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/tags/audio/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/tags/audio/</link>
     <description>Recent content in Audio on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/audio/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/tags/audio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alexa bell</title>
-      <link>https://nikhilkakade.github.io/projects/alexa-bell/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/alexa-bell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/alexa-bell/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/alexa-bell/</guid>
       <description> </description>
     </item>
     
     <item>
       <title>Audio Amplifier</title>
-      <link>https://nikhilkakade.github.io/projects/audio-amplifer/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/audio-amplifer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/audio-amplifer/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/audio-amplifer/</guid>
       <description>4W, 8W &amp;amp; 20W audio amplifier designing</description>
     </item>
     
     <item>
       <title>Biometric Door Access System</title>
-      <link>https://nikhilkakade.github.io/projects/door-access-control/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/door-access-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/door-access-control/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/door-access-control/</guid>
       <description>Fingerprint based door access system</description>
     </item>
     
     <item>
       <title>Bluetooth Speaker</title>
-      <link>https://nikhilkakade.github.io/projects/bluetooth-speaker/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/bluetooth-speaker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/bluetooth-speaker/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/bluetooth-speaker/</guid>
       <description>Bluetooth Speaker</description>
     </item>
     
     <item>
       <title>Desinging Power Converters</title>
-      <link>https://nikhilkakade.github.io/projects/designing-power-converters/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/designing-power-converters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/designing-power-converters/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/designing-power-converters/</guid>
       <description>Designing different Buck converter, buck boost converters</description>
     </item>
     
     <item>
       <title>EVSE Type 2 AC Charger</title>
-      <link>https://nikhilkakade.github.io/projects/ev-ch-hub-uk/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/ev-ch-hub-uk/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/ev-ch-hub-uk/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/ev-ch-hub-uk/</guid>
       <description>Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol</description>
     </item>
     
     <item>
       <title>USB Audio DAC</title>
-      <link>https://nikhilkakade.github.io/projects/usb-audio-dac/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/usb-audio-dac/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/usb-audio-dac/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/usb-audio-dac/</guid>
       <description>USB Audio DAC to design USB based audio converter</description>
     </item>
     

@@ -2,142 +2,142 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blogs on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/blog/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/</link>
     <description>Recent content in Blogs on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ac dimmer </title>
-      <link>https://nikhilkakade.github.io/blog/ac-dimmer/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ac-dimmer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/ac-dimmer/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ac-dimmer/</guid>
       <description>Credentials 🔗 Certificate 🔗 Score Report 🔗 Credly Badge Introduction I&amp;rsquo;ve passed the AWS Solutions Architect - Associate certification exam with a score of 962/1000 with just 2 months of preparation while working full-time as a software engineer. In this article, I’ll be sharing everything about this exam, my preparation strategies and tips. So, if you have plans on taking this exam anytime soon, read this article till the end.</description>
     </item>
     
     <item>
       <title>CP2102 custom driver name</title>
-      <link>https://nikhilkakade.github.io/blog/cp2102-custom-driver/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/cp2102-custom-driver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/cp2102-custom-driver/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/cp2102-custom-driver/</guid>
       <description>change cp2102 driver name</description>
     </item>
     
     <item>
       <title>Design a USB2.0 Flash Drive</title>
-      <link>https://nikhilkakade.github.io/blog/usb-flash-drive/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/usb-flash-drive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/usb-flash-drive/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/usb-flash-drive/</guid>
       <description>USB Mass Storage flash drive</description>
     </item>
     
     <item>
       <title>ESP32 Windows USB programmer</title>
-      <link>https://nikhilkakade.github.io/blog/esp32-programmer/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/esp32-programmer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/esp32-programmer/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/esp32-programmer/</guid>
       <description>ESP32 programmers</description>
     </item>
     
     <item>
       <title>Hacking Leg remote controller</title>
-      <link>https://nikhilkakade.github.io/blog/leg-remote-controller/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/leg-remote-controller/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/leg-remote-controller/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/leg-remote-controller/</guid>
       <description>Decoding the communication of Leg remote controller</description>
     </item>
     
     <item>
       <title>HDMI DDC Brightness &amp; Contrast Control</title>
-      <link>https://nikhilkakade.github.io/blog/ddc_brightness_control/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ddc_brightness_control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/ddc_brightness_control/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/ddc_brightness_control/</guid>
       <description>Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands</description>
     </item>
     
     <item>
       <title>I passed the AWS DVA Certification Exam</title>
-      <link>https://nikhilkakade.github.io/blog/aws-dva-certification/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-dva-certification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/aws-dva-certification/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-dva-certification/</guid>
       <description>How I passed the AWS Developer - Associate Certification Exam (DVA-C02)</description>
     </item>
     
     <item>
       <title>I passed the AWS SAA Certification Exam</title>
-      <link>https://nikhilkakade.github.io/blog/aws-saa-certification/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-saa-certification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/aws-saa-certification/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/aws-saa-certification/</guid>
       <description>How I passed the AWS Solutions Architect-Associate Certification Exam</description>
     </item>
     
     <item>
       <title>PCM2704 USB Audio DAC Device Name Change</title>
-      <link>https://nikhilkakade.github.io/blog/usb_audio_dac_name/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/usb_audio_dac_name/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/usb_audio_dac_name/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/usb_audio_dac_name/</guid>
       <description>Change USB device secrptior string of USB Audio DAC. Change the name of Audio output device that shows in the Windows Audio device list</description>
     </item>
     
     <item>
       <title>Reverse polarity protection </title>
-      <link>https://nikhilkakade.github.io/blog/reverse-polarity-protection/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/reverse-polarity-protection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/reverse-polarity-protection/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/reverse-polarity-protection/</guid>
       <description>Credentials 🔗 Certificate 🔗 Score Report 🔗 Credly Badge Introduction I&amp;rsquo;ve passed the AWS Solutions Architect - Associate certification exam with a score of 962/1000 with just 2 months of preparation while working full-time as a software engineer. In this article, I’ll be sharing everything about this exam, my preparation strategies and tips. So, if you have plans on taking this exam anytime soon, read this article till the end.</description>
     </item>
     
     <item>
       <title>Kindle to Notion</title>
-      <link>https://nikhilkakade.github.io/blog/kindle-to-notion/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/kindle-to-notion/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/kindle-to-notion/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/kindle-to-notion/</guid>
       <description>A way to seamlessly transfer your Kindle highlights to Notion Database!</description>
     </item>
     
     <item>
       <title>Face Landmarks Detection using CNN</title>
-      <link>https://nikhilkakade.github.io/blog/face-landmarks-detection/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/face-landmarks-detection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/face-landmarks-detection/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/face-landmarks-detection/</guid>
       <description>Can computers really understand the human face?</description>
     </item>
     
     <item>
       <title>Machine Learning - Visualized</title>
-      <link>https://nikhilkakade.github.io/blog/machine-learning-visualized/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/machine-learning-visualized/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/machine-learning-visualized/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/machine-learning-visualized/</guid>
       <description>A visual approach to understand machine learning</description>
     </item>
     
     <item>
       <title>Face Dataset Compression using PCA</title>
-      <link>https://nikhilkakade.github.io/blog/face-dataset-compression/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/face-dataset-compression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/face-dataset-compression/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/face-dataset-compression/</guid>
       <description>Principal Component Analysis for Image Dataset Compression</description>
     </item>
     
     <item>
       <title>Principal Component Analysis - Visualized</title>
-      <link>https://nikhilkakade.github.io/blog/pca-visualized/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/blog/pca-visualized/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/blog/pca-visualized/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/blog/pca-visualized/</guid>
       <description>Data compression using Principal Component Analysis (PCA)</description>
     </item>
     

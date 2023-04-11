@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>FreeRTOS on Nikhil Kakade</title>
-    <link>https://nikhilkakade.github.io/tags/freertos/</link>
+    <link>https://nikhil9237.github.io/nikhilkakade.github.io/tags/freertos/</link>
     <description>Recent content in FreeRTOS on Nikhil Kakade</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/freertos/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://nikhil9237.github.io/nikhilkakade.github.io/tags/freertos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IoT based Energy Metering</title>
-      <link>https://nikhilkakade.github.io/projects/energy-metering/</link>
+      <link>https://nikhil9237.github.io/nikhilkakade.github.io/projects/energy-metering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikhilkakade.github.io/projects/energy-metering/</guid>
+      <guid>https://nikhil9237.github.io/nikhilkakade.github.io/projects/energy-metering/</guid>
       <description>Device measured the energy consumed and send the data on cloud server</description>
     </item>
     
