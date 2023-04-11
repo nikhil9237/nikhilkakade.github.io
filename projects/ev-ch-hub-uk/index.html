@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>EVSE Type 2 AC Charger | Nikhil Kakade</title>
+<meta name="keywords" content="USB, Audio">
+<meta name="description" content="Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/projects/ev-ch-hub-uk/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="EVSE Type 2 AC Charger" />
+<meta property="og:description" content="Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/projects/ev-ch-hub-uk/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EVSE Type 2 AC Charger"/>
+<meta name="twitter:description" content="Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://nikhilkakade.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "EVSE Type 2 AC Charger",
+      "item": "https://nikhilkakade.github.io/projects/ev-ch-hub-uk/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "EVSE Type 2 AC Charger",
+  "name": "EVSE Type 2 AC Charger",
+  "description": "Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol",
+  "keywords": [
+    "USB", "Audio"
+  ],
+  "articleBody": "https://en.wikipedia.org/wiki/SAE_J1772\nDescription Many Electric Vechical (EV) useS SAE J1772 Type 1 Connector for the charging. The Type 1 connector is connected to a “electric vehicle supply equipment”(EVSE). EVSE supply AC power to the vehicle’s on-board charger, which then converts it to the direct current (DC) needed to recharge the battery.\nSAE J1772 / IEC 62196-2-1 Type 1 Connector. Different types of connector are used in differnet countries. Below is the figure of EV charger connector standars There are two type of EVSE (Charger)\nAC Charger It only supply AC single phase/3 phase power to the vehicle. Rectifier is in the card which convertes the AC into DC and charges the battries. DC Charger The Charger itself rectifies the AC into DC. DC supply is fed to the vehicle. There are two EV side connectors, type-1 and type-2.\nType-1 connector (J1772): It consists of 5 pins. It has charging voltage upto 250V and charging current upto 32 A. Hence AC charging power upto 7 KW can be possible. Type-2 connector (62196-2): It supports single phase charging and three phase charging with charging voltage upto 500V and charging current upto 63A. Three phase 400 V charging at 32 A represents charging power of 22 KW. In this system, AC charger is impliment with IEC 62196-2-1 connector.\nThe IEC 62196-2-1 has 7 pins. Position Signal Description 1 L1, L2, L3 AC Phase L1 for Single Phase supply L1, L2, L3 for three Phase supply 2 N AC Neutral 3 PE Protective Earth / Ground 4 PP “Proximity Pilot”/“plug present”, which provides a signal to the vehicle’s control system so it can prevent movement while connected to the EVSE (Charging station), and signals the latch release button to the vehicle. 5 CP “Control Pilot” is a communication line used to signal charging level between the car and the EVSE. 1 KHz square wave at +/-12V is generated by EVSE on the pilot pin to detect the presence of the vehicle, communicate the maximum allowable charging current and control the charging begin/end. Working The signaling protocol has been designed for the negotation with the vehicle. A microcontroller is used in the EVSE to impliment the protocol. The protocl has the diffenr charging states thats need to follow to start the charging. The charging states checks if the vehicle is connected properly, set the charging current, provide the safet feutre. CP pin is used for the communication.\nThe hardware includes a controller (ESP32), Relay to turn ON/OFF the charger supply, Opamp and other components.\nSignaling Circuit Control Pilot (Mode) The controller uses a 1 kHz square wave at ±12V on the control pilot that is connected back to the protective earth (GND) on the vehicle side by means of a resistor and a diode (voltage range ±12.0±0.4 V). It forms a voltage divider network. The controller measure the analog voltage present on the CP pin to check the state of the charger(explained below).\nCharging Sequence [State A] When the charger is not connected, The controller puts +12V on the control pilot wire. till the votage stays at 12V controllers keep the charger OFF.\nWhen the plug has been connected, the vehicle places a 2.74kΩ load on the pilot line, It forms a voltage divder circuit (1kΩ in the EVSE and 2.74kΩ in the vehicle) which drops the voltage to 9 V. It indicate that EV is ready for charging. [State B] When the voltage is set to 9V, Controller enables the PWM, which signals the vehicle how much current it can draw. The EVSE also closes the relays, providing power to the vehicle.\n[State C] The vehicle starts to draw power and switches to the 822Ω load, which drops the voltage to 6 V, signaling the EVSE that charging has started. Most vehicles continue to pull low amounts of power in state C, even when fully charged, so the charging process is ended by unplugging the cable, which returns the voltage to 12 V. The controller measures this process and closes the relays and returns to State A.\nThe diode preset in the vehicle will only make for a voltage drop in the positive range; any negative voltage on the CP-PE loop is blocked by D1 in the vehicle. It a safety function. Like if the connector drops in the water or any short circuit happens on the pin then negative voltage also transfers on the CP pin. So if that happens the controller turn OFF the power.\nControl Pilot (Current Control) The duty cycle of the pilot signals communicates the limit of current the EVSE is capable of supplying to the vehicle; the vehicle can then use up to that amount of current for its charging circuitry. This current rating is primarily determined by the electromechanical components in the EVSE, such as conductors, relays, contactors, and the service connection.\nThe controller uses the PWM to set the 1Khz wave duty cycle as per the current provided by charger.\nExample Example of CP line communication Proximity Pilot (PP) PP pins uses to turn off the power in case of the charger removal. If the connector removed directly when the chrging is going on, it can create a spark due to high current flowing through the connector. It also uses to indicate the cable current carring capacity.\nThe proximity pin (PP) is connected to the switch (S3). Switch is mechanically linked to the connector latch release actuator. During charging, the EVSE side connects the PP-PE loop via S3 and a 150 Ω R6; when opening the release actuator a 330 Ω R7 is added in the PP-PE loop on the EVSE side which gives a voltage shift on the line to allow the electric vehicle to initiate a controlled shut off prior to actual disconnection of the charge power pins.\nEVSE Product Hardware CP block schematic used in Product EVSE Product PCB Photo Reference https://en.wikipedia.org/wiki/SAE_J1772 https://openev.freshdesk.com/support/solutions/articles/6000052074-basics-of-sae-j1772 https://openev.freshdesk.com/helpdesk/attachments/6004101695 https://www.ti.com/lit/ug/tidub87/tidub87.pdf?ts=1680494703780\u0026ref_url=https%253A%252F%252Fwww.google.com%252F ",
+  "wordCount" : "981",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/projects/ev-ch-hub-uk/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/projects/">Projects</a></div>
+    <h1 class="post-title">
+      EVSE Type 2 AC Charger
+    </h1>
+    <div class="post-description">
+      Designing of Electric Vechical cahrger(EV) for Type 2 Plug Car. CP-PP Protocol
+    </div>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#description" aria-label="Description">Description</a></li>
+                <li>
+                    <a href="#working" aria-label="Working">Working</a><ul>
+                        
+                <li>
+                    <a href="#control-pilot-mode" aria-label="Control Pilot (Mode)">Control Pilot (Mode)</a></li>
+                <li>
+                    <a href="#control-pilot-current-control" aria-label="Control Pilot (Current Control)">Control Pilot (Current Control)</a></li>
+                <li>
+                    <a href="#example-of-cp-line-communication" aria-label="Example of CP line communication">Example of CP line communication</a></li>
+                <li>
+                    <a href="#proximity-pilot-pp" aria-label="Proximity Pilot (PP)">Proximity Pilot (PP)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#evse-product-hardware" aria-label="EVSE Product Hardware">EVSE Product Hardware</a><ul>
+                        
+                <li>
+                    <a href="#cp-block-schematic-used-in-product" aria-label="CP block schematic used in Product">CP block schematic used in Product</a></li>
+                <li>
+                    <a href="#evse-product-pcb-photo" aria-label="EVSE Product PCB Photo">EVSE Product PCB Photo</a></li></ul>
+                </li>
+                <li>
+                    <a href="#reference" aria-label="Reference">Reference</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><a href="https://en.wikipedia.org/wiki/SAE_J1772" target="_blank">https://en.wikipedia.org/wiki/SAE_J1772</a></p>
+<p><img loading="lazy" src="/projects/evse_charger/car_plug.jpg" alt=""  />
+</p>
+<h2 id="description">Description<a hidden class="anchor" aria-hidden="true" href="#description">#</a></h2>
+<p>Many Electric Vechical (EV) useS SAE J1772 Type 1 Connector for the charging. The Type 1 connector is connected to a &ldquo;electric vehicle supply equipment&rdquo;(EVSE). EVSE supply AC power to the vehicle&rsquo;s on-board charger, which then converts it to the direct current (DC) needed to recharge the battery.</p>
+<p>SAE J1772 / IEC 62196-2-1 Type 1 Connector.
+<img src="/projects/evse_charger/type2-connector.jpg" width=49% height=auto /></p>
+<p>Different types of connector are used in differnet countries. Below is the figure of EV charger connector standars
+<img loading="lazy" src="/projects/evse_charger/connector_type.png" alt=""  />
+</p>
+<p><strong>There are two type of EVSE (Charger)</strong></p>
+<ul>
+<li>AC Charger
+<ul>
+<li>It only supply AC single phase/3 phase power to the vehicle. Rectifier is in the card which convertes the AC into DC and charges the battries.</li>
+</ul>
+</li>
+<li>DC Charger
+<ul>
+<li>The Charger itself rectifies the AC into DC. DC supply is fed to the vehicle.</li>
+</ul>
+</li>
+</ul>
+<p><strong>There are two EV side connectors, type-1 and type-2.</strong></p>
+<ul>
+<li>Type-1 connector (J1772): It consists of 5 pins. It has charging voltage upto 250V and charging current upto 32 A. Hence AC charging power upto 7 KW can be possible.</li>
+<li>Type-2 connector (62196-2): It supports single phase charging and three phase charging with charging voltage upto 500V and charging current upto 63A. Three phase 400 V charging at 32 A represents charging power of 22 KW.</li>
+</ul>
+<p>In this system, AC charger is impliment with IEC 62196-2-1 connector.</p>
+<p>The IEC 62196-2-1 has 7 pins.
+<img src="/projects/evse_charger/pinout.jpg" width=50% height=auto /></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Signal</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>L1, L2, L3</td>
+<td>AC Phase </br> L1 for Single Phase supply </br> L1, L2, L3 for three Phase supply</td>
+</tr>
+<tr>
+<td>2</td>
+<td>N</td>
+<td>AC Neutral</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PE</td>
+<td>Protective Earth / Ground</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PP</td>
+<td>&ldquo;Proximity Pilot&rdquo;/&ldquo;plug present&rdquo;, which provides a signal to the vehicle&rsquo;s control system so it can prevent movement while connected to the EVSE (Charging station), and signals the latch release button to the vehicle.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CP</td>
+<td>&ldquo;Control Pilot&rdquo; is a communication line used to signal charging level between the car and the EVSE. </br> 1 KHz square wave at +/-12V is generated by EVSE on the pilot pin to detect the presence of the vehicle, communicate the maximum allowable charging current and control the charging begin/end.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="working">Working<a hidden class="anchor" aria-hidden="true" href="#working">#</a></h2>
+<p>The signaling protocol has been designed for the negotation with the vehicle.
+A microcontroller is used in the EVSE to impliment the protocol. The protocl has the diffenr charging states thats need to follow to start the charging. The charging states checks if the vehicle is connected properly, set the charging current, provide the safet feutre. CP pin is used for the communication.</p>
+<p>The hardware includes a controller (ESP32), Relay to turn ON/OFF the charger supply, Opamp and other components.</p>
+<p>Signaling Circuit
+<img loading="lazy" src="/projects/evse_charger/J1772_signaling_circuit.jpg" alt=""  />
+</p>
+<h3 id="control-pilot-mode">Control Pilot (Mode)<a hidden class="anchor" aria-hidden="true" href="#control-pilot-mode">#</a></h3>
+<p>The controller uses a 1 kHz square wave at ±12V on the control pilot that is connected back to the protective earth (GND) on the vehicle side by means of a resistor and a diode (voltage range ±12.0±0.4 V). It forms a voltage divider network. The controller measure the analog voltage present on the CP pin to check the state of the charger(explained below).</p>
+<p><strong>Charging Sequence</strong>
+<img loading="lazy" src="/projects/evse_charger/neg_table.png" alt=""  />
+</p>
+<ul>
+<li>
+<p><strong>[State A]</strong> When the charger is not connected,  The controller puts +12V on the control pilot wire. till the votage stays at 12V controllers keep the charger OFF.</p>
+</li>
+<li>
+<p>When the plug has been connected, the vehicle places a 2.74kΩ load on the pilot line, It forms a voltage divder circuit (1kΩ in the EVSE and 2.74kΩ in the vehicle) which drops the voltage to 9 V. It indicate that EV is ready for charging.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/state_b.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/state_b.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/state_b.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+</li>
+<li>
+<p><strong>[State B]</strong> When the voltage is set to 9V, Controller enables the PWM, which signals the vehicle how much current it
+can draw. The EVSE also closes the relays, providing power to the vehicle.</p>
+</li>
+<li>
+<p><strong>[State C]</strong> The vehicle starts to draw power and switches to the 822Ω load, which drops the voltage to 6 V,
+signaling the EVSE that charging has started.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/state_b1.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/state_b1.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/state_b1.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+</li>
+<li>
+<p>Most vehicles continue to pull low amounts of power in state C, even when fully charged, so the
+charging process is ended by unplugging the cable, which returns the voltage to 12 V. The controller
+measures this process and closes the relays and returns to State A.</p>
+</li>
+</ul>
+<p>The diode preset in the vehicle will only make for a voltage drop in the positive range; any negative voltage on the CP-PE loop is blocked by D1 in the vehicle. It a safety function. Like if the connector drops in the water or any short circuit happens on the pin then negative voltage also transfers on the CP pin. So if that happens the controller turn OFF the power.</p>
+<h3 id="control-pilot-current-control">Control Pilot (Current Control)<a hidden class="anchor" aria-hidden="true" href="#control-pilot-current-control">#</a></h3>
+<p>The duty cycle of the pilot signals communicates the limit of current the EVSE is capable of supplying to
+the vehicle; the vehicle can then use up to that amount of current for its charging circuitry. This current
+rating is primarily determined by the electromechanical components in the EVSE, such as conductors,
+relays, contactors, and the service connection.</p>
+<p>The controller uses the <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation" target="_blank">PWM</a> to set the 1Khz wave duty cycle as per the current provided by charger.</p>
+<p>Example
+<img loading="lazy" src="/projects/evse_charger/duty_cycle.png" alt=""  />
+</p>
+<h3 id="example-of-cp-line-communication">Example of CP line communication<a hidden class="anchor" aria-hidden="true" href="#example-of-cp-line-communication">#</a></h3>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/communication.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/communication.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/communication.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h3 id="proximity-pilot-pp">Proximity Pilot (PP)<a hidden class="anchor" aria-hidden="true" href="#proximity-pilot-pp">#</a></h3>
+<p>PP pins uses to turn off the power in case of the charger removal. If the connector removed directly when the chrging is going on, it can create a spark due to high current flowing through the connector. It also uses to indicate the cable current carring capacity.</p>
+<p>The proximity pin (PP) is connected to the switch (S3). Switch is mechanically linked to the connector latch release actuator. During charging, the EVSE side connects the PP-PE loop via S3 and a 150 Ω R6; when opening the release actuator a 330 Ω R7 is added in the PP-PE loop on the EVSE side which gives a voltage shift on the line to allow the electric vehicle to initiate a controlled shut off prior to actual disconnection of the charge power pins.</p>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/pp_logic.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/pp_logic.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/pp_logic.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h2 id="evse-product-hardware">EVSE Product Hardware<a hidden class="anchor" aria-hidden="true" href="#evse-product-hardware">#</a></h2>
+<h3 id="cp-block-schematic-used-in-product">CP block schematic used in Product<a hidden class="anchor" aria-hidden="true" href="#cp-block-schematic-used-in-product">#</a></h3>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/schematic.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/schematic.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/schematic.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h3 id="evse-product-pcb-photo">EVSE Product PCB Photo<a hidden class="anchor" aria-hidden="true" href="#evse-product-pcb-photo">#</a></h3>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/evse_top_pcb.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/evse_top_pcb.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/evse_top_pcb.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/evse_charger/evse_bottom_pcb.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/evse_charger/evse_bottom_pcb.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/evse_charger/evse_bottom_pcb.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/SAE_J1772" target="_blank">https://en.wikipedia.org/wiki/SAE_J1772</a></li>
+<li><a href="https://openev.freshdesk.com/support/solutions/articles/6000052074-basics-of-sae-j1772" target="_blank">https://openev.freshdesk.com/support/solutions/articles/6000052074-basics-of-sae-j1772</a></li>
+<li><a href="https://openev.freshdesk.com/helpdesk/attachments/6004101695" target="_blank">https://openev.freshdesk.com/helpdesk/attachments/6004101695</a></li>
+<li><a href="https://www.ti.com/lit/ug/tidub87/tidub87.pdf?ts=1680494703780&amp;ref_url=https%253A%252F%252Fwww.google.com%252F" target="_blank">https://www.ti.com/lit/ug/tidub87/tidub87.pdf?ts=1680494703780&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/usb/">USB</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/audio/">Audio</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

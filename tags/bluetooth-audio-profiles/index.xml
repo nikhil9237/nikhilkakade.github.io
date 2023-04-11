@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bluetooth Audio Profiles on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/bluetooth-audio-profiles/</link>
+    <description>Recent content in Bluetooth Audio Profiles on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/bluetooth-audio-profiles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BlueBox</title>
+      <link>https://nikhilkakade.github.io/projects/bluebox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/bluebox/</guid>
+      <description>Bluetooth 4.0 audio transmitter receiver and Analog Audio switch for SmartDesk. Bluetooth Profiles used: A2DP,HFP,AVRCP,HSP,MAP,PBAP</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HDMI DDC on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/hdmi-ddc/</link>
+    <description>Recent content in HDMI DDC on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/hdmi-ddc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ac dimmer </title>
+      <link>https://nikhilkakade.github.io/blog/ac-dimmer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/ac-dimmer/</guid>
+      <description>Credentials 🔗 Certificate 🔗 Score Report 🔗 Credly Badge Introduction I&amp;rsquo;ve passed the AWS Solutions Architect - Associate certification exam with a score of 962/1000 with just 2 months of preparation while working full-time as a software engineer. In this article, I’ll be sharing everything about this exam, my preparation strategies and tips. So, if you have plans on taking this exam anytime soon, read this article till the end.</description>
+    </item>
+    
+    <item>
+      <title>Design a USB2.0 Flash Drive</title>
+      <link>https://nikhilkakade.github.io/blog/usb-flash-drive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/usb-flash-drive/</guid>
+      <description>USB Mass Storage flash drive</description>
+    </item>
+    
+    <item>
+      <title>ESP32 Windows USB programmer</title>
+      <link>https://nikhilkakade.github.io/blog/esp32-programmer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/esp32-programmer/</guid>
+      <description>ESP32 programmers</description>
+    </item>
+    
+    <item>
+      <title>Hacking Leg remote controller</title>
+      <link>https://nikhilkakade.github.io/blog/leg-remote-controller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/leg-remote-controller/</guid>
+      <description>Decoding the communication of Leg remote controller</description>
+    </item>
+    
+    <item>
+      <title>PCM2704 USB Audio DAC Device Name Change</title>
+      <link>https://nikhilkakade.github.io/blog/usb_audio_dac_name/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/usb_audio_dac_name/</guid>
+      <description>Change USB device secrptior string of USB Audio DAC. Change the name of Audio output device that shows in the Windows Audio device list</description>
+    </item>
+    
+    <item>
+      <title>Reverse polarity protection </title>
+      <link>https://nikhilkakade.github.io/blog/reverse-polarity-protection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/blog/reverse-polarity-protection/</guid>
+      <description>Credentials 🔗 Certificate 🔗 Score Report 🔗 Credly Badge Introduction I&amp;rsquo;ve passed the AWS Solutions Architect - Associate certification exam with a score of 962/1000 with just 2 months of preparation while working full-time as a software engineer. In this article, I’ll be sharing everything about this exam, my preparation strategies and tips. So, if you have plans on taking this exam anytime soon, read this article till the end.</description>
+    </item>
+    
+  </channel>
+</rss>

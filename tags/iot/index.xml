@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IoT on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/iot/</link>
+    <description>Recent content in IoT on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IOT Based Oxygen and SPO2 Analyzer</title>
+      <link>https://nikhilkakade.github.io/projects/o2-analyzer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/o2-analyzer/</guid>
+      <description>IOT Based Oxygen and SPO2 Analyzer</description>
+    </item>
+    
+    <item>
+      <title>EV Charging HUB (Chargie)</title>
+      <link>https://nikhilkakade.github.io/products/ev-charging-station/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/ev-charging-station/</guid>
+      <description>IoT Based Electric Vehicle Charging Station</description>
+    </item>
+    
+    <item>
+      <title>IoT based Smart Lock (NuLock)</title>
+      <link>https://nikhilkakade.github.io/products/smart-lock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/smart-lock/</guid>
+      <description>IoT Based Smart Lock used in the petrochemical industries. Intrinsic Safe Design</description>
+    </item>
+    
+    <item>
+      <title>IoT Bane (SmartDesk)</title>
+      <link>https://nikhilkakade.github.io/projects/iot_bane/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/iot_bane/</guid>
+      <description>Enabling IoT functionality of Smartdesk</description>
+    </item>
+    
+    <item>
+      <title>IoT based Energy Metering</title>
+      <link>https://nikhilkakade.github.io/projects/energy-metering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/energy-metering/</guid>
+      <description>Device measured the energy consumed and send the data on cloud server</description>
+    </item>
+    
+  </channel>
+</rss>

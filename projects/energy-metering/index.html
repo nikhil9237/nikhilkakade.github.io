@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>IoT based Energy Metering | Nikhil Kakade</title>
+<meta name="keywords" content="IoT, Energy Metering, ESP32, FreeRTOS, GSM">
+<meta name="description" content="Device measured the energy consumed and send the data on cloud server">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/projects/energy-metering/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="IoT based Energy Metering" />
+<meta property="og:description" content="Device measured the energy consumed and send the data on cloud server" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/projects/energy-metering/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IoT based Energy Metering"/>
+<meta name="twitter:description" content="Device measured the energy consumed and send the data on cloud server"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://nikhilkakade.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "IoT based Energy Metering",
+      "item": "https://nikhilkakade.github.io/projects/energy-metering/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "IoT based Energy Metering",
+  "name": "IoT based Energy Metering",
+  "description": "Device measured the energy consumed and send the data on cloud server",
+  "keywords": [
+    "IoT", "Energy Metering", "ESP32", "FreeRTOS", "GSM"
+  ],
+  "articleBody": "Product Description This system is designed for Electric Vehicles Charging station. The system is divided into two cards. One Card is a Master card which has the GSM Module, RTC and 2 output channel. This card can measure the energy consumption of two load. Second card is a expansion relay card which has 4 output channel and 6 output channel for solenoid. Solenoids are used to lock the compartment where user can put his charger while charging. Relay card is controlled by a the master card.\nSystem Architecture Working Energy measurement The master card is connected to one step down transformer(PT) to measure the AC line voltage and 6 seperate current transformer (CT) to measure the current flow while charging. The controller uses a Open source library (EmonLib) for calculating the energy consumption. The controller measures different parameters like voltage, current, wattage, power factor. USing these parameter, the controller calculates the total energy consumed while the charging cycle\nFirmware \u0026 IoT The ESP32 runs on a FreeRTOS OS. FreeRTOS can run multiple threads so that controller can measure the energy consumption of all 6 devices simultaneously. For the communication with the cloud, a Thinger platform is used. It creates a secure channel between the IoT device an cloud server. For the internet connectivity a 2G GSM module is used.\nIf any network issue found between the master card and server then the master card stores all the readings in the flash memory. Once the servers gets live it sends all the data to cloud server. A Thinger APIs are written in the ESP32 for accessing the data and controlling the master card.\nUser can schedule a task for specific channel that will turn ON the power of that channel. E.g. If user schedule a task for the date 12/03/2022 and time slot between 13.00 to 14.00 then the master card turn on the for on that data and time. In that 1 hour time, master card will calculate the energy consumption and that data is sent to cloud server.\nBelow are the other APIs used:\nPing: To check if the IoT device is live. Create Task: To schedule a task for specific date and time Delete Task: To delete a scheduled task Read- To read the registered task on the device Reset- To reset the device Available Task Files- To check Available task file on device Locker- To open Locker solenoid Create_Unit_file-To create unit file Delete Unit- Delete Unit File Read Unit- To read unit file RTC_set- to set RTC time Signal Strength- Sim card network strength The response of this APIs will get into the JSON format. A python script is written to test the APIs.\nThe device can be updated with a new firmware using the OTA (Over the Air) features.\nTechnical Specifications Network: 2G GSM 6 Channel for Charging points 6 Channel Input for CT 1 Channel Input for PT 6 Channel output for Solenoid OTA supported Onboard Flash Memory Onboard RTC Overvoltage and Overcurrent Protection FreeRTOS OS Photos Testing the Circuit Variant 2: 4 Channel device PCB Live Reading on Serial Terminal ",
+  "wordCount" : "516",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/projects/energy-metering/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/projects/">Projects</a></div>
+    <h1 class="post-title">
+      IoT based Energy Metering
+    </h1>
+    <div class="post-description">
+      Device measured the energy consumed and send the data on cloud server
+    </div>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#product-description" aria-label="Product Description">Product Description</a></li>
+                <li>
+                    <a href="#system-architecture" aria-label="System Architecture">System Architecture</a></li>
+                <li>
+                    <a href="#working" aria-label="Working">Working</a><ul>
+                        
+                <li>
+                    <a href="#energy-measurement" aria-label="Energy measurement">Energy measurement</a></li>
+                <li>
+                    <a href="#firmware--iot" aria-label="Firmware &amp;amp; IoT">Firmware &amp; IoT</a></li></ul>
+                </li>
+                <li>
+                    <a href="#technical-specifications" aria-label="Technical Specifications">Technical Specifications</a></li>
+                <li>
+                    <a href="#photos" aria-label="Photos">Photos</a><ul>
+                        
+                <li>
+                    <a href="#testing-the-circuit" aria-label="Testing the Circuit">Testing the Circuit</a></li>
+                <li>
+                    <a href="#variant-2-4-channel-device-pcb" aria-label="Variant 2: 4 Channel device PCB">Variant 2: 4 Channel device PCB</a></li>
+                <li>
+                    <a href="#live-reading-on-serial-terminal" aria-label="Live Reading on Serial Terminal">Live Reading on Serial Terminal</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="product-description">Product Description<a hidden class="anchor" aria-hidden="true" href="#product-description">#</a></h2>
+<p>This system is designed for Electric Vehicles Charging station. The system is divided into two cards. One Card is a Master card which has the GSM Module, RTC and 2 output channel. This card can measure the energy consumption of two load. Second card is a expansion relay card which has 4 output channel and 6 output channel for solenoid. Solenoids are used to lock the compartment where user can put his charger while charging. Relay card is controlled by a the master card.</p>
+<h2 id="system-architecture">System Architecture<a hidden class="anchor" aria-hidden="true" href="#system-architecture">#</a></h2>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/energy_meter/ch_hub_block.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_block.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_block.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h2 id="working">Working<a hidden class="anchor" aria-hidden="true" href="#working">#</a></h2>
+<h3 id="energy-measurement">Energy measurement<a hidden class="anchor" aria-hidden="true" href="#energy-measurement">#</a></h3>
+<p>The master card is connected to one step down transformer(PT) to measure the AC line voltage and 6 seperate current transformer (CT) to measure the current flow while charging. The controller uses a Open source library <a href="https://github.com/openenergymonitor/EmonLib" target="_blank">(EmonLib)</a> for calculating the energy consumption. The controller measures different parameters like voltage, current, wattage, power factor.
+USing these parameter, the controller calculates the total energy consumed while the charging cycle</p>
+<h3 id="firmware--iot">Firmware &amp; IoT<a hidden class="anchor" aria-hidden="true" href="#firmware--iot">#</a></h3>
+<p>The ESP32 runs on a FreeRTOS OS. FreeRTOS can run multiple threads so that controller can measure the energy consumption of all 6 devices simultaneously. For the communication with the cloud, a <a href="https://thinger.io/" target="_blank">Thinger</a> platform is used. It creates a secure channel between the IoT device an cloud server. For the internet connectivity a 2G GSM module is used.</p>
+<p>If any network issue found between the master card and server then the master card stores all the readings in the flash memory. Once the servers gets live it sends all the data to cloud server. A Thinger APIs are written in the ESP32 for accessing the data and controlling the master card.</p>
+<p>User can schedule a task for specific channel that will turn ON the power of that channel.
+E.g. If user schedule a task for the date 12/03/2022 and time slot between 13.00 to 14.00 then the master card turn on the for on that data and time. In that 1 hour time, master card will calculate the energy consumption and that data is sent to cloud server.</p>
+<p>Below are the other APIs used:</p>
+<ul>
+<li>Ping: To check if the IoT device is live.</li>
+<li>Create Task: To schedule a task for specific date and time</li>
+<li>Delete Task: To delete a scheduled task</li>
+<li>Read- To read the registered task on the device</li>
+<li>Reset- To reset the device</li>
+<li>Available Task Files- To check Available task file on device</li>
+<li>Locker- To open Locker solenoid</li>
+<li>Create_Unit_file-To create unit file</li>
+<li>Delete Unit- Delete Unit File</li>
+<li>Read Unit- To read unit file</li>
+<li>RTC_set- to set RTC time</li>
+<li>Signal Strength- Sim card network strength</li>
+</ul>
+<p>The response of this APIs will get into the JSON format. A python script is written to test the APIs.</p>
+<p><strong>The device can be updated with a new firmware using the OTA (Over the Air) features.</strong></p>
+<hr>
+<h2 id="technical-specifications">Technical Specifications<a hidden class="anchor" aria-hidden="true" href="#technical-specifications">#</a></h2>
+<ul>
+<li>Network: 2G GSM</li>
+<li>6 Channel for Charging points</li>
+<li>6 Channel Input for CT</li>
+<li>1 Channel Input for PT</li>
+<li>6 Channel output for Solenoid</li>
+<li>OTA supported</li>
+<li>Onboard Flash Memory</li>
+<li>Onboard RTC</li>
+<li>Overvoltage and Overcurrent Protection</li>
+<li>FreeRTOS OS</li>
+</ul>
+<hr>
+<h2 id="photos">Photos<a hidden class="anchor" aria-hidden="true" href="#photos">#</a></h2>
+<h3 id="testing-the-circuit">Testing the Circuit<a hidden class="anchor" aria-hidden="true" href="#testing-the-circuit">#</a></h3>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/energy_meter/ch_hub_testing.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_testing.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_testing.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/7buPYwCoGV4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h3 id="variant-2-4-channel-device-pcb">Variant 2: 4 Channel device PCB<a hidden class="anchor" aria-hidden="true" href="#variant-2-4-channel-device-pcb">#</a></h3>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/energy_meter/ch_hub_top.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_top.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_top.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/energy_meter/ch_hub_bot.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_bot.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/energy_meter/ch_hub_bot.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h3 id="live-reading-on-serial-terminal">Live Reading on Serial Terminal<a hidden class="anchor" aria-hidden="true" href="#live-reading-on-serial-terminal">#</a></h3>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/energy_meter/ch hub output.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/energy_meter/ch%20hub%20output.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/energy_meter/ch%20hub%20output.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/iot/">IoT</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/energy-metering/">Energy Metering</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/esp32/">ESP32</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/freertos/">FreeRTOS</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/gsm/">GSM</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

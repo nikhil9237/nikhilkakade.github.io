@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HDMI DDC Brightness &amp; Contrast Control | Nikhil Kakade</title>
+<meta name="keywords" content="HDMI, I2C">
+<meta name="description" content="Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/blog/ddc_brightness_control/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="HDMI DDC Brightness &amp; Contrast Control" />
+<meta property="og:description" content="Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/blog/ddc_brightness_control/" /><meta property="article:section" content="blog" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HDMI DDC Brightness &amp; Contrast Control"/>
+<meta name="twitter:description" content="Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://nikhilkakade.github.io/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HDMI DDC Brightness \u0026 Contrast Control",
+      "item": "https://nikhilkakade.github.io/blog/ddc_brightness_control/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HDMI DDC Brightness \u0026 Contrast Control",
+  "name": "HDMI DDC Brightness \u0026 Contrast Control",
+  "description": "Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands",
+  "keywords": [
+    "HDMI", "I2C"
+  ],
+  "articleBody": "About DDC The Display Data Channel, or DDC, is a collection of protocols for digital communication between a display and a graphics adapter that enable the display to communicate its supported display modes to the adapter and that enable the computer host to adjust monitor parameters, such as brightness and contrast.\nObjective The DDC commands uses the I2C protocol for the data communication. We have designed a USB to HDMI Dock and the dock SoC used on the doesn’t support the DDC commands for brightness and contrast adjustment . To provide the display brightness and contrast adjustment functionality in dock, we wanted to design a application that will send the I2C commands directly to the display. For the interfacing, we have USB to I2C adaptor to directly send the I2C commands from the computer’s USB port to the display. There is no need of intermediate microcontroller for the communication between the display and computer. Hardware Setup A CP2112 USB to I2C bridge module is used for the sending the I2C commands from Windows application to HDMI display. Bridge module is connected to a Logic level shifter module because the bridge modules works on 3.3V logic and HDMI I2C channels works on 5V logic. The Bridge module SDA and SCL pins are connected to the HDMI port SDA and SCL lines. A DDC supported HDMI display is used for testing. (Not all display supports the DDc commands). I2C commands VCP commands are used to set the parameters. There are two type of VCP function.\nGetVCP (To get the information from display like name, input mode, current brightness/contrast values) SetVCP (To set the display parameter like brightness/contrast, input type, volume). SetVCP data parameters 6E Destination address\r51 Source address\r84 Length\r03 Set VCP Feature COMMAND\rCP VCP opcode\rSH High byte\rSL Low byte\rCS CheckSum Brightness Control To send the I2C command from the computer, we have used the CP2112 HidSmbus Utiltiy provided by SilconLabs. Silsiocn Labs also provided the SDK that contains all the information for the CP2112 APIs to deveiop a Windows/Mac/Linux application. For the testing we have used the demo ‘HidSmbus example’ application prvided bt Silicon Labs in the SDK.\nDownload the CP2112 SDK from here. Extract and open the HidSmbus example.exe from SiliconLabs\\USBXpressHostSDK\\CP2112\\Release\\x86\nAfter oprmimg the appication, select the connection (i.e. CP2112 module) and click on connect. Now click on the ‘Data Transfer’ tab. The I2C address of the display is 0x37 (Slave address). But in the application we have to set it to 0x6E. (0x37 « 1 = 6E) left shift 0x37 by one you will get 6E.\nNow to set the brightness we have to use the SetVCP commands. First we have to set the below data\ndata:6E 51 84 03 10\n6E Destination address\r51 Source address\r84 Length\r03 Set VCP Feature COMMAND\r10 VCP opcode for brightness The next two bytes are the brigntess value in hex. e.g for 100% brightness, Convert the 100 into hex which is 0x00 0x64. You can caluclute it using Windows programmer caluclator. 100(DEC) = 0x00 0x64 (Hex).\n00 High byte of brightness value\r64 Low byte of brightness value data: 6E 51 84 03 10 00 64\nand the last byte is checksum which can be calculate as below\n6E XOR 51 XOR 84 XOR 03 XOR 10 XOR 00 XOR 64 = CC\nNow the complete data is 51 84 03 10 00 64 CC\nClick on write request and send the data, The brightness of display should be change to 100%\nLike wise for 10% brightness the data is 51 84 03 10 00 0A A2\nWe have connected a logic analyzer to see what actaul data is wrtten on the I2C lines. Contrast Control To change the contrast set the VCP opcode to 0x12. So for 100% contrast the data is 51 84 03 12 00 64 CE\nIn this way by changing the opcode we can set/control other display settings like tuning ON/OFF display, selecting color preset, changing input mode.\nYou can find differnt opcodes and detailed infomation of DDC commands below. https://milek7.pl/ddcbacklight/ddcci.pdf https://www.ddcutil.com/getvcp_known_u3011_output/\n",
+  "wordCount" : "683",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/blog/ddc_brightness_control/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/blog/">Blogs</a></div>
+    <h1 class="post-title">
+      HDMI DDC Brightness &amp; Contrast Control
+    </h1>
+    <div class="post-description">
+      Control the HDMI monitor brightness/contrast from the PC using I2C DDC Commands
+    </div>
+    <div class="post-meta">
+
+
+May 2022
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#about-ddc" aria-label="About DDC">About DDC</a></li>
+                <li>
+                    <a href="#objective" aria-label="Objective">Objective</a></li>
+                <li>
+                    <a href="#hardware-setup" aria-label="Hardware Setup">Hardware Setup</a></li>
+                <li>
+                    <a href="#i2c-commands" aria-label="I2C commands">I2C commands</a><ul>
+                        
+                <li>
+                    <a href="#brightness-control" aria-label="Brightness Control">Brightness Control</a></li>
+                <li>
+                    <a href="#contrast-control" aria-label="Contrast Control">Contrast Control</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="about-ddc">About DDC<a hidden class="anchor" aria-hidden="true" href="#about-ddc">#</a></h2>
+<p>The Display Data Channel, or DDC, is a collection of protocols for digital communication between a display and a graphics adapter that enable the display to communicate its supported display modes to the adapter and that enable the computer host to adjust monitor parameters, such as brightness and contrast.</p>
+<h2 id="objective">Objective<a hidden class="anchor" aria-hidden="true" href="#objective">#</a></h2>
+<p>The DDC commands uses the I2C protocol for the data communication. We have designed a <a href="https://nikhilkakade.github.io/projects/1k_usb_dock/">USB to HDMI Dock</a> and the dock SoC used on the doesn&rsquo;t support the DDC commands for brightness and contrast adjustment . To provide the display brightness and contrast adjustment functionality in dock, we wanted to design a application that will send the I2C commands directly to the display. For the interfacing, we have USB to I2C adaptor to directly send the I2C commands from the computer&rsquo;s USB port to the display. There is no need of intermediate microcontroller for the communication between the display and computer.
+<img loading="lazy" src="/blog/hdmi_ddc/ddc_block.jpg" alt=""  />
+</p>
+<h2 id="hardware-setup">Hardware Setup<a hidden class="anchor" aria-hidden="true" href="#hardware-setup">#</a></h2>
+<ul>
+<li>A <a href="https://robu.in/product/cp2112-debug-board-usb-to-i2c-communication-module/" target="_blank">CP2112 USB to I2C bridge</a> module is used for the sending the I2C commands from Windows application to HDMI display.</li>
+<li>Bridge module is connected to a <a href="https://robu.in/product/level-converter-4-channel/" target="_blank">Logic level shifter</a> module because the bridge modules works on 3.3V logic and HDMI I2C channels works on 5V logic.</li>
+<li>The Bridge module SDA and SCL pins are connected to the HDMI port SDA and SCL lines.</li>
+<li>A DDC supported HDMI display is used for testing. (Not all display supports the DDc commands).
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/cdiag.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/cdiag.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/cdiag.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/setup.png"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/setup.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/setup.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/setup2.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/setup2.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/setup2.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</li>
+</ul>
+<h2 id="i2c-commands">I2C commands<a hidden class="anchor" aria-hidden="true" href="#i2c-commands">#</a></h2>
+<p>VCP commands are used to set the parameters. There are two type of VCP function.</p>
+<ul>
+<li>GetVCP (To get the information from display like name, input mode, current brightness/contrast values)</li>
+<li>SetVCP (To set the display parameter like brightness/contrast, input type, volume).
+SetVCP data parameters</li>
+</ul>
+<pre tabindex="0"><code>6E Destination address
+51 Source address
+84 Length
+03 Set VCP Feature COMMAND
+CP VCP opcode
+SH High byte
+SL Low byte
+CS CheckSum
+</code></pre><h3 id="brightness-control">Brightness Control<a hidden class="anchor" aria-hidden="true" href="#brightness-control">#</a></h3>
+<p>To send the I2C command from the computer, we have used the CP2112 HidSmbus Utiltiy provided by SilconLabs. Silsiocn Labs also provided the <a href="https://www.silabs.com/interface/usb-bridges/classic/device.cp2112?tab=softwareandtools" target="_blank">SDK</a> that contains all the information for the CP2112 APIs to deveiop a Windows/Mac/Linux application. For the testing we have used the demo &lsquo;HidSmbus example&rsquo; application prvided bt Silicon Labs in the SDK.</p>
+<p>Download the CP2112 SDK from <a href="https://www.silabs.com/documents/public/software/USBXpressHostSDK-Win.zip" target="_blank">here</a>.
+Extract and open the HidSmbus example.exe from <code>SiliconLabs\USBXpressHostSDK\CP2112\Release\x86</code></p>
+<p>After oprmimg the appication, select the connection (i.e. CP2112 module) and click on connect.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/hid1.png"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/hid1.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/hid1.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+Now click on the &lsquo;Data Transfer&rsquo; tab.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/hid2.png"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/hid2.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/hid2.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<p>The I2C address of the display is 0x37 (Slave address). But in the application we have to set it to 0x6E. (0x37 &laquo; 1 = 6E) left shift 0x37 by one you will get 6E.</p>
+<p>Now to set the brightness we have to use the SetVCP commands.
+First we have to set the below data</p>
+<p>data:<code>6E 51 84 03 10</code></p>
+<pre tabindex="0"><code>6E Destination address
+51 Source address
+84 Length
+03 Set VCP Feature COMMAND
+10 VCP opcode for brightness
+</code></pre><p>The next two bytes are the brigntess value in hex.
+e.g for 100% brightness, Convert the 100 into hex which is 0x00 0x64. You can caluclute it using Windows programmer caluclator.
+100(DEC) = 0x00 0x64 (Hex).</p>
+<pre tabindex="0"><code>00 High byte of brightness value
+64 Low byte of brightness value
+</code></pre><p>data: <code>6E 51 84 03 10 00 64</code></p>
+<p>and the last byte is checksum which can be calculate as below</p>
+<p><code> 6E XOR 51 XOR 84 XOR 03 XOR 10 XOR 00 XOR 64 = CC</code></p>
+<p><img src="/blog/hdmi_ddc/hid3.png" width=60% height=auto /></a></p>
+<p>Now the complete data is <code> 51 84 03 10 00 64 CC</code></p>
+<p>Click on write request and send the data, The brightness of display should be change to 100%</p>
+<p>Like wise for 10% brightness the data is <code> 51 84 03 10 00 0A A2</code></p>
+<p>We have connected a logic analyzer to see what actaul data is wrtten on the I2C lines.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/blog/hdmi_ddc/logicoutput.png"
+      
+      
+        href="https://nikhilkakade.github.io/blog/hdmi_ddc/logicoutput.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/blog/hdmi_ddc/logicoutput.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h3 id="contrast-control">Contrast Control<a hidden class="anchor" aria-hidden="true" href="#contrast-control">#</a></h3>
+<p>To change the contrast set the VCP opcode to 0x12.
+So for 100% contrast the data is <code> 51 84 03 12 00 64 CE</code></p>
+<p>In this way by changing the opcode we can set/control other display settings like tuning ON/OFF display, selecting color preset, changing input mode.</p>
+<p>You can find differnt opcodes and detailed infomation of DDC commands below.
+<a href="https://milek7.pl/ddcbacklight/ddcci.pdf" target="_blank">https://milek7.pl/ddcbacklight/ddcci.pdf</a>
+<a href="https://www.ddcutil.com/getvcp_known_u3011_output/" target="_blank">https://www.ddcutil.com/getvcp_known_u3011_output/</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/hdmi/">HDMI</a></li>
+      <li><a href="https://nikhilkakade.github.io/tags/i2c/">I2C</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Educational on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/educational/</link>
+    <description>Recent content in Educational on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/educational/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Educational Demonstration Kit</title>
+      <link>https://nikhilkakade.github.io/projects/educational-kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/educational-kit/</guid>
+      <description>Live demo of physics principal: Eddy current, Magenstism</description>
+    </item>
+    
+    <item>
+      <title>S-COM</title>
+      <link>https://nikhilkakade.github.io/products/s-com/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/s-com/</guid>
+      <description>A very compact, small and light weight device that works like a mini PC</description>
+    </item>
+    
+    <item>
+      <title>Switch Timer</title>
+      <link>https://nikhilkakade.github.io/products/switch-timer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/switch-timer/</guid>
+      <description>Converts the normal AC socket into Snmart Socket</description>
+    </item>
+    
+    <item>
+      <title>TESTING DOC</title>
+      <link>https://nikhilkakade.github.io/sub_project/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/sub_project/test/</guid>
+      <description>A very compact, small and light weight device that works like a mini PC</description>
+    </item>
+    
+  </channel>
+</rss>

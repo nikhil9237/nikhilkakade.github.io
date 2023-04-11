@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>20 Channel Voltage Data Logger | Nikhil Kakade</title>
+<meta name="keywords" content="DataLoggers">
+<meta name="description" content="Datalogger measures the voltage of 20 Lead Acid batteries and logs data into the Windows software">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/products/20-channel-voltage-datalogger/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="20 Channel Voltage Data Logger" />
+<meta property="og:description" content="Datalogger measures the voltage of 20 Lead Acid batteries and logs data into the Windows software" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/products/20-channel-voltage-datalogger/" />
+<meta property="og:image" content="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger2.png" /><meta property="article:section" content="products" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger2.png" />
+<meta name="twitter:title" content="20 Channel Voltage Data Logger"/>
+<meta name="twitter:description" content="Datalogger measures the voltage of 20 Lead Acid batteries and logs data into the Windows software"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Products",
+      "item": "https://nikhilkakade.github.io/products/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "20 Channel Voltage Data Logger",
+      "item": "https://nikhilkakade.github.io/products/20-channel-voltage-datalogger/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "20 Channel Voltage Data Logger",
+  "name": "20 Channel Voltage Data Logger",
+  "description": "Datalogger measures the voltage of 20 Lead Acid batteries and logs data into the Windows software",
+  "keywords": [
+    "DataLoggers"
+  ],
+  "articleBody": " Client Product Description The Product is used in the EXIDE battery manufacturing plant to measure and log the voltages of the Lead Acid batteries while its manufacturing process. The product panel is divided into 48 datalogging cards and each card can measure and log the voltages of 20 lead acid batteries connected in series. So each panel can log the data of 960 batteries. The recorded data is stored in the card and All cards data stored in the MySQL database (Windows Machine). Each card is connected to a 24 channel Ethernet switch and the ethernet switch is connected to the local computer for the connectivity.\nProduct Architecture Working In the battery manufacturing process the battery is charged for 48 hours by a rectifier and after particular interval the battery voltages needs to be measure to check if the batteries are charging accordingly to the charge cycle.the Card has two trigger inputs which is connected to the rectifier. once the trigger comes from the rectifier its log the data of that time. Windows machine runs a MySQL database server to store all the logs and trigger data from the card and Custom designed software is installed to read/display all the logged voltages.\nOnce the windows server comes online the card transfers all the locally stored data (JSON) into the MySQL database by executing the SQL quires. The software is also used to add a new card, set the trigger interval,create a batch of batteries. Each card is identified by its IP address.\nThe card has a overvolatge detection feature that detects if any battery voltages goes above the the threshold voltage limit. If the overvoltage condition occures then the buzzer and Alert indicator on the card turn ON.\nProduct Specifications 20 Voltage measurement channels. Voltage measurement range: 0V - 48V DC Voltage measuring accuracy: +/-50mV 2 Trigger Channels. TCP/IP connection with server (over Ethernet) 4Gb onboard storage memory. 12V Card Input voltage LED indications for card power, Server live, logging, Alert Onboard RTC (Real Time Clock). Battery Overvoltage detection. (Each channel is ) Interactive Windows software for live voltage diaplay, Displaying stored records and Report Generation. Single Server/Software supports upto 7 Panels. (Total 6720 battries) Product Photos/Videos Datalogger Software UI\n",
+  "wordCount" : "370",
+  "inLanguage": "en",
+  "image":"https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger2.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/products/20-channel-voltage-datalogger/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/products/">Products</a></div>
+    <h1 class="post-title">
+      20 Channel Voltage Data Logger
+    </h1>
+    <div class="post-description">
+      Datalogger measures the voltage of 20 Lead Acid batteries and logs data into the Windows software
+    </div>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger2.png" alt="">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#client" aria-label="Client">Client</a></li>
+                <li>
+                    <a href="#product-description" aria-label="Product Description">Product Description</a></li>
+                <li>
+                    <a href="#product-architecture" aria-label="Product Architecture">Product Architecture</a></li>
+                <li>
+                    <a href="#working" aria-label="Working">Working</a></li>
+                <li>
+                    <a href="#product-specifications" aria-label="Product Specifications">Product Specifications</a></li>
+                <li>
+                    <a href="#product-photosvideos" aria-label="Product Photos/Videos">Product Photos/Videos</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="client">Client<a hidden class="anchor" aria-hidden="true" href="#client">#</a></h2>
+<p><a href="https://www.exideindustries.com/"><img src="/projects/datalogger/20ch-datalogger/exidelogo.jpg" width=40% height=auto /></a></p>
+<hr>
+<h2 id="product-description">Product Description<a hidden class="anchor" aria-hidden="true" href="#product-description">#</a></h2>
+<p>The Product is used in the  <a href="https://www.exideindustries.com/" target="_blank">&lt;strong&gt;EXIDE&lt;/strong&gt;</a> battery manufacturing plant to measure and log the voltages of the Lead Acid batteries while its manufacturing process. The product panel is divided into 48 datalogging cards and each card can measure and log the voltages of 20 lead acid batteries connected in series. So each panel can log the data of <strong>960</strong> batteries. The recorded data is stored in the card and All cards data stored in the MySQL database (Windows Machine). Each card is connected to a 24 channel Ethernet switch and the ethernet switch is connected to the local computer for the connectivity.</p>
+<h2 id="product-architecture">Product Architecture<a hidden class="anchor" aria-hidden="true" href="#product-architecture">#</a></h2>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/datalogger_arch.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger_arch.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger_arch.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h2 id="working">Working<a hidden class="anchor" aria-hidden="true" href="#working">#</a></h2>
+<p>In the battery manufacturing process the battery is charged for 48 hours by a rectifier and after particular interval the battery voltages needs to be measure to check if the batteries are charging accordingly to the charge cycle.the Card has two trigger inputs which is connected to the rectifier. once the trigger comes from the rectifier its log the data of that time.
+Windows machine runs a MySQL database server to store all the logs and trigger data from the card and Custom designed software is installed to read/display all the logged voltages.</p>
+<p>Once the windows server comes online the card transfers all the locally stored data (JSON) into the MySQL database by executing the SQL quires.  The software is also used to add a new card, set the trigger interval,create a batch of batteries. Each card is identified by its IP address.</p>
+<p>The card has a overvolatge detection feature that detects if any battery voltages goes above the the threshold voltage limit. If the overvoltage condition occures then the buzzer and Alert indicator on the card turn ON.</p>
+<hr>
+<h2 id="product-specifications">Product Specifications<a hidden class="anchor" aria-hidden="true" href="#product-specifications">#</a></h2>
+<ul>
+<li>20 Voltage measurement channels.</li>
+<li>Voltage measurement range: 0V - 48V DC</li>
+<li>Voltage measuring accuracy: +/-50mV</li>
+<li>2 Trigger Channels.</li>
+<li>TCP/IP connection with server (over Ethernet)</li>
+<li>4Gb onboard storage memory.</li>
+<li>12V Card Input voltage</li>
+<li>LED indications for card power, Server live, logging, Alert</li>
+<li>Onboard RTC (Real Time Clock).</li>
+<li>Battery Overvoltage detection. (Each channel is )</li>
+<li>Interactive Windows software for live voltage diaplay, Displaying stored records and Report Generation.</li>
+<li>Single Server/Software supports upto 7 Panels. (Total <strong>6720</strong> battries)</li>
+</ul>
+<hr>
+<h2 id="product-photosvideos">Product Photos/Videos<a hidden class="anchor" aria-hidden="true" href="#product-photosvideos">#</a></h2>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/datalogger4.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger4.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger4.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  style="width: 80%;"
+  style="height: auto;"
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/datalog_bac2.jpeg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalog_bac2.jpeg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalog_bac2.jpeg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  style="width: 80%;"
+  style="height: auto;"
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/datalog_back1.jpeg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalog_back1.jpeg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalog_back1.jpeg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/datalogger1.jpeg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger1.jpeg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/datalogger1.jpeg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+</br>
+Datalogger Software UI</p>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/datalogger/20ch-datalogger/dl_software.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/dl_software.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/datalogger/20ch-datalogger/dl_software.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/CbdMso5phqg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/nsf40BVOJ_U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Testing of Datalogger 2"></iframe>
+</div>
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/dataloggers/">DataLoggers</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>USB Mass Storage Controller (Flash Drive) | Nikhil Kakade</title>
+<meta name="keywords" content="USB">
+<meta name="description" content="USB2.0 NAND Flash memory Controller (Storage: 2Gb/4Gb/8Gb)">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/projects/mass-storage/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="USB Mass Storage Controller (Flash Drive)" />
+<meta property="og:description" content="USB2.0 NAND Flash memory Controller (Storage: 2Gb/4Gb/8Gb)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/projects/mass-storage/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="USB Mass Storage Controller (Flash Drive)"/>
+<meta name="twitter:description" content="USB2.0 NAND Flash memory Controller (Storage: 2Gb/4Gb/8Gb)"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://nikhilkakade.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "USB Mass Storage Controller (Flash Drive)",
+      "item": "https://nikhilkakade.github.io/projects/mass-storage/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "USB Mass Storage Controller (Flash Drive)",
+  "name": "USB Mass Storage Controller (Flash Drive)",
+  "description": "USB2.0 NAND Flash memory Controller (Storage: 2Gb/4Gb/8Gb)",
+  "keywords": [
+    "USB"
+  ],
+  "articleBody": "\rDescription Many products requires a onboard storage memory to store different data like drivers, manuals so that user can access it over the USB connection. The system should be access over a USB host computer. It should mount as a mass storage device (like drive).\nTo system main parts\nNAND Flash Memory: NAND flash memory is a type of non-volatile storage technology that does not require power in order to retain data. The NAND flash memory is of two types,\nNAND Flash (RAW Memory)\nIt is a flash memory without any controller.\nIt can be interface with a microcontroller by writing a driver and firmware for flash operations.\nIt can be interfaced with NAND flash controller chip (Mentioned in point 2).\nThis types of memory are used in the RAM,SSD.\nManaged NAND\nIt is a memory with NAND controller.\nExample is eMMC/Memory Card, EEPROM IC.\nMemory Controller : The NAND Flash controller chip that is dedicatedly designed to control the operations on Raw Flash Memory and Directly Accessible from Windows as a mass storage (Under HID Devices, No need of Driver development). A flash memory controller is the part of solid-state flash memory that communicates with the host device and manages the flash file system directory. The controller is also responsible for wear leveling, error correction and garbage collection.\nFor the detailed information about the memory interfacing/types, click here.\nSystem Design OTi2272 chip is used as a flash memory controller. It is a high performance USB 2.0 Mass Storage Class Peripheral controller targeted for applications of USB Flash Disks. The design complies with USB High Speed Specification (480Mb/s).\nThe controller Integrates the USB 2.0 transceiver with dynamic feedback control, stable slew rate, independent of external loading for reducing EMI. A Phase Lock Loop (PLL) is embedded provides all clocks needed in this controller.\nThe OTi-2272 accommodates up to 8 Flash devices and works with comprehensive Flash memory technologies available on the market. The controller also has write- protect capability to prevent writing data to Flash.\nThe controlled can be interfaced with different brands flash memory like Hynix, Sandisk, Samsung. Each memory controller has its own list of supported NAND flash memory depending on the flash type MLC/TLC and its density. This list is provided by the flash memory controller vendor. Below is the list example. In this system, A 2GB (8Gbit) NAND flash memory (Hynix H27UAG8T2ATR) is interfaced with the OTI2272 controller.\nThe memory can be mounted in two mode.\nMass Storage: In this mode, the memory mount as a removable flash drive. Like a normal flash drive. In Read/write mode. CD Drive : In this mode, the memory mount in readonly mode like the CD. User can not delete the data from the drive. The memory is configured using the Windows utility provided by Oti. Customized Firmware Vendor provided another utiltiy to lock/unlock the flash drive in mass storage mode. When the drive is unlocked it goes into writable mode. User can copy the files in the drive. This mode is used to copy the files like driver at the time of assembly the product. Once the files are copied, the drive is set into lock mode and user can not format drive or delete the data.\nUtility Uses The utilty is used for the below purpose\nChange the VID/PID (If required) Change the Product and Vendor String Product String is the name that will be displayed in the Windows device manager. Fix the flash memory usable capacity. It use to set the memory size less than its actual capacity. Below is the screenshot of USB Drive mounted in windows explorer after plugging the device. Changed product string to “Nikhil Test Flash drive”. OTi2272 datasheet List of Other Flash Memory Controller used for Testing CBM1180 USB2.0 Controller SM3257 USB2.0 Controller IS917 USB3.0 Controller Test PCBA The test PCB is divided into two parts\nOne PCB has OTi Controller, USB connector and other components. Another PCB has NAND flash memory. This PCB plugs into the controller PCB. It it designed to test different NAND flash memories. PCB for testing other controller Mass Storage circuit used in product PCB Demo Video ",
+  "wordCount" : "690",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/projects/mass-storage/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/projects/">Projects</a></div>
+    <h1 class="post-title">
+      USB Mass Storage Controller (Flash Drive)
+    </h1>
+    <div class="post-description">
+      USB2.0 NAND Flash memory Controller (Storage: 2Gb/4Gb/8Gb)
+    </div>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#description" aria-label="Description">Description</a></li>
+                <li>
+                    <a href="#system-design" aria-label="System Design">System Design</a><ul>
+                        
+                <li>
+                    <a href="#customized-firmware" aria-label="Customized Firmware">Customized Firmware</a></li>
+                <li>
+                    <a href="#utility-uses" aria-label="Utility Uses">Utility Uses</a><ul>
+                        
+                <li>
+                    <a href="#oti2272-datasheethttpsdrivegooglecomfiled1nduq5u90c3zymhiotl0oy79bbly3oqmbviewuspshare_link" aria-label="OTi2272 datasheet"><a href="https://drive.google.com/file/d/1nduQ5u90C3ZYmHIOTL0oy79BBlY3OqMb/view?usp=share_link" target="_blank">OTi2272 datasheet</a></a></li></ul>
+                </li>
+                <li>
+                    <a href="#list-of-other-flash-memory-controller-used-for-testing" aria-label="List of Other Flash Memory Controller used for Testing">List of Other Flash Memory Controller used for Testing</a></li></ul>
+                </li>
+                <li>
+                    <a href="#test-pcba" aria-label="Test PCBA">Test PCBA</a><ul>
+                        
+                <li>
+                    <a href="#pcb-for-testing-other-controller" aria-label="PCB for testing other controller">PCB for testing other controller</a></li>
+                <li>
+                    <a href="#mass-storage-circuit-used-in-product-pcb" aria-label="Mass Storage circuit used in product PCB">Mass Storage circuit used in product PCB</a></li>
+                <li>
+                    <a href="#demo-video" aria-label="Demo Video">Demo Video</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img loading="lazy" src="/projects/mass_storage/mass_pcb_test.jpg" alt=""  />
+</p>
+<h2 id="description">Description<a hidden class="anchor" aria-hidden="true" href="#description">#</a></h2>
+<p>Many products requires a onboard storage memory to store different data like drivers, manuals so that user can access it over the USB connection.
+The system should be access over a USB host computer. It should mount as a mass storage device (like drive).</p>
+<p>To system main parts</p>
+<ol>
+<li>
+<p>NAND Flash Memory: NAND flash memory is a type of non-volatile storage technology that does not require power in order to retain data. The NAND flash memory is of two types,</p>
+<ul>
+<li>
+<p>NAND Flash (RAW Memory)</p>
+<ul>
+<li>
+<p>It is a flash memory without any controller.</p>
+</li>
+<li>
+<p>It can be interface with a microcontroller by writing a driver and firmware for flash operations.</p>
+</li>
+<li>
+<p>It can be interfaced with NAND flash controller chip (Mentioned in point 2).</p>
+</li>
+<li>
+<p>This types of memory are used in the RAM,SSD.</p>
+<p><img loading="lazy" src="/projects/mass_storage/nand_flash.jpg" alt="NAND Flash"  />
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Managed NAND</p>
+<ul>
+<li>
+<p>It is a memory with NAND controller.</p>
+</li>
+<li>
+<p>Example is eMMC/Memory Card, EEPROM IC.</p>
+<p><img loading="lazy" src="/projects/mass_storage/flash_confg.png" alt=""  />
+
+<img loading="lazy" src="/projects/mass_storage/flash_config2.jpg" alt=""  />
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Memory Controller :
+The NAND Flash controller chip that is dedicatedly designed to control the operations on Raw Flash Memory and Directly Accessible from Windows as a mass storage (Under HID Devices, No need of Driver development).
+A flash memory controller is the part of solid-state flash memory that communicates with the host device and manages the flash file system directory. The controller is also responsible for wear leveling, error correction and garbage collection.</p>
+</li>
+</ol>
+<p><strong>For the detailed information about the memory interfacing/types, click <a href="https://ufixers.com/d/64-emmc-embedded-multi-media-card" target="_blank">here</a>.</strong></p>
+<h2 id="system-design">System Design<a hidden class="anchor" aria-hidden="true" href="#system-design">#</a></h2>
+<p><a href="http://www.urti.com.tw/OTi%20-%202272.html" target="_blank">OTi2272</a> chip is used as a flash memory controller.
+It is a high performance USB 2.0 Mass Storage Class Peripheral controller targeted for applications of USB Flash Disks. The design complies with USB High Speed Specification (480Mb/s).</p>
+<p>The controller Integrates the USB 2.0 transceiver with dynamic feedback control, stable slew rate, independent of external loading for reducing EMI. A Phase Lock Loop (PLL) is embedded provides all clocks needed in this controller.</p>
+<p>The OTi-2272 accommodates up to 8 Flash devices and works with comprehensive Flash memory technologies available on the market. The controller also has write- protect capability to prevent writing data to Flash.</p>
+<p>The controlled can be interfaced with different brands flash memory like Hynix, Sandisk, Samsung.
+Each memory controller has its own list of supported NAND flash memory depending on the flash type MLC/TLC and its density. This list is provided by the flash memory controller vendor. Below is the list example.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/flash list.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/flash%20list.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/flash%20list.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<p>In this system, A 2GB (8Gbit) NAND flash memory <a href="https://www.kynix.com/Detail/898935/H27UAG8T2ATR-BC.html" target="_blank">(Hynix H27UAG8T2ATR)</a> is interfaced with the OTI2272 controller.</p>
+<p>The memory can be mounted in two mode.</p>
+<ul>
+<li>Mass Storage: In this mode, the memory mount as a removable flash drive. Like a normal flash drive. In Read/write mode.</li>
+<li>CD Drive : In this mode, the memory mount in readonly mode like the CD. User can not delete the data from the drive.</li>
+</ul>
+<p>The memory is configured using the Windows utility provided by Oti.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/oti utility.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/oti%20utility.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/oti%20utility.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h3 id="customized-firmware">Customized Firmware<a hidden class="anchor" aria-hidden="true" href="#customized-firmware">#</a></h3>
+<p>Vendor provided another utiltiy to lock/unlock the flash drive in mass storage mode.
+When the drive is unlocked it goes into writable mode. User can copy the files in the drive. This mode is used to copy the files like driver at the time of assembly the product. Once the files are copied, the drive is set into lock mode and user can not format drive or delete the data.</p>
+<h3 id="utility-uses">Utility Uses<a hidden class="anchor" aria-hidden="true" href="#utility-uses">#</a></h3>
+<p>The utilty is used for the below purpose</p>
+<ul>
+<li>Change the VID/PID (If required)</li>
+<li>Change the Product and Vendor String
+<ul>
+<li>Product String is the name that will be displayed in the Windows device manager.</li>
+</ul>
+</li>
+<li>Fix the flash memory usable capacity.
+<ul>
+<li>It use to set the memory size less than its actual capacity.</li>
+</ul>
+</li>
+</ul>
+<p>Below is the screenshot of USB Drive mounted in windows explorer after plugging the device. Changed product string to &ldquo;Nikhil Test Flash drive&rdquo;.
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/usb mass explorer.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/usb%20mass%20explorer.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/usb%20mass%20explorer.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h4 id="oti2272-datasheethttpsdrivegooglecomfiled1nduq5u90c3zymhiotl0oy79bbly3oqmbviewuspshare_link"><a href="https://drive.google.com/file/d/1nduQ5u90C3ZYmHIOTL0oy79BBlY3OqMb/view?usp=share_link" target="_blank">OTi2272 datasheet</a><a hidden class="anchor" aria-hidden="true" href="#oti2272-datasheethttpsdrivegooglecomfiled1nduq5u90c3zymhiotl0oy79bbly3oqmbviewuspshare_link">#</a></h4>
+<h3 id="list-of-other-flash-memory-controller-used-for-testing">List of Other Flash Memory Controller used for Testing<a hidden class="anchor" aria-hidden="true" href="#list-of-other-flash-memory-controller-used-for-testing">#</a></h3>
+<ul>
+<li><a href="https://datasheetspdf.com/pdf-file/559226/Chipsbank/CBM1180/1" target="_blank">CBM1180</a>  USB2.0 Controller</li>
+<li><a href="https://datasheetspdf.com/pdf-file/1408070/SiliconMotion/SM3257ENBA/1" target="_blank">SM3257</a>  USB2.0 Controller</li>
+<li><a href="http://www.datasheet-pdf.com/PDF/IS917-Datasheet-Innostor-1258787" target="_blank">IS917</a>  USB3.0 Controller</li>
+</ul>
+<h2 id="test-pcba">Test PCBA<a hidden class="anchor" aria-hidden="true" href="#test-pcba">#</a></h2>
+<p>The test PCB is divided into two parts</p>
+<ul>
+<li>One PCB  has OTi Controller, USB connector and other components.</li>
+<li>Another PCB has NAND flash memory. This PCB plugs into the controller PCB. It it designed to test different NAND flash memories.</li>
+</ul>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/test pcb1.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb1.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb1.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/test pcb2.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb2.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb2.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/test pcb3.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb3.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/test%20pcb3.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h3 id="pcb-for-testing-other-controller">PCB for testing other controller<a hidden class="anchor" aria-hidden="true" href="#pcb-for-testing-other-controller">#</a></h3>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/mass strg test brd.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/mass%20strg%20test%20brd.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/mass%20strg%20test%20brd.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h3 id="mass-storage-circuit-used-in-product-pcb">Mass Storage circuit used in product PCB<a hidden class="anchor" aria-hidden="true" href="#mass-storage-circuit-used-in-product-pcb">#</a></h3>
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/mass_storage/mspcba.jpg"
+      
+      
+        href="https://nikhilkakade.github.io/projects/mass_storage/mspcba.jpg"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/mass_storage/mspcba.jpg"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+<h3 id="demo-video">Demo Video<a hidden class="anchor" aria-hidden="true" href="#demo-video">#</a></h3>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/UO2mH6Z2vxI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/usb/">USB</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

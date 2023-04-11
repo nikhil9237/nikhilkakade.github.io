@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Medical on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/medical/</link>
+    <description>Recent content in Medical on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/medical/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brainwave Headset</title>
+      <link>https://nikhilkakade.github.io/products/brainwave-headset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/brainwave-headset/</guid>
+      <description>User friendly and portable BCI system that acts as a EEG acquisition unit plus Brain control device</description>
+    </item>
+    
+    <item>
+      <title>IOT Based Oxygen and SPO2 Analyzer</title>
+      <link>https://nikhilkakade.github.io/projects/o2-analyzer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/o2-analyzer/</guid>
+      <description>IOT Based Oxygen and SPO2 Analyzer</description>
+    </item>
+    
+    <item>
+      <title>Bluetooth car</title>
+      <link>https://nikhilkakade.github.io/projects/bluetooth-car/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/bluetooth-car/</guid>
+      <description>used for brinwavw</description>
+    </item>
+    
+    <item>
+      <title>Educational projects</title>
+      <link>https://nikhilkakade.github.io/projects/educational-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/educational-projects/</guid>
+      <description>Projects for educational</description>
+    </item>
+    
+    <item>
+      <title>Home Automation</title>
+      <link>https://nikhilkakade.github.io/projects/home-automation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/home-automation/</guid>
+      <description>Designed By CEMTREX Product Description cover the USB to I2S DAC part as well
+Working Techincal Specifications single channel daddw</description>
+    </item>
+    
+    <item>
+      <title>Wireless Modules</title>
+      <link>https://nikhilkakade.github.io/projects/wireless-module/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/wireless-module/</guid>
+      <description>RF modules</description>
+    </item>
+    
+  </channel>
+</rss>

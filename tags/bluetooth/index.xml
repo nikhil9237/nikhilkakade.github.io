@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bluetooth on Nikhil Kakade</title>
+    <link>https://nikhilkakade.github.io/tags/bluetooth/</link>
+    <description>Recent content in Bluetooth on Nikhil Kakade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://nikhilkakade.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bluetooth Modules</title>
+      <link>https://nikhilkakade.github.io/projects/modules/bluetooth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/modules/bluetooth/</guid>
+      <description>List of Bluetooth modules used in different projects</description>
+    </item>
+    
+    <item>
+      <title>IoT based Smart Lock (NuLock)</title>
+      <link>https://nikhilkakade.github.io/products/smart-lock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/products/smart-lock/</guid>
+      <description>IoT Based Smart Lock used in the petrochemical industries. Intrinsic Safe Design</description>
+    </item>
+    
+    <item>
+      <title>Biometric Door Access System</title>
+      <link>https://nikhilkakade.github.io/projects/door-access-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/door-access-control/</guid>
+      <description>Fingerprint based door access system</description>
+    </item>
+    
+    <item>
+      <title>BlueBox</title>
+      <link>https://nikhilkakade.github.io/projects/bluebox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/bluebox/</guid>
+      <description>Bluetooth 4.0 audio transmitter receiver and Analog Audio switch for SmartDesk. Bluetooth Profiles used: A2DP,HFP,AVRCP,HSP,MAP,PBAP</description>
+    </item>
+    
+    <item>
+      <title>Bluetooth Speaker</title>
+      <link>https://nikhilkakade.github.io/projects/bluetooth-speaker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikhilkakade.github.io/projects/bluetooth-speaker/</guid>
+      <description>Bluetooth Speaker</description>
+    </item>
+    
+  </channel>
+</rss>

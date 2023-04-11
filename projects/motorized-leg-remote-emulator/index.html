@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Remote for Motorized Leg Controller | Nikhil Kakade</title>
+<meta name="keywords" content="Electronic">
+<meta name="description" content="Hacking/Designing a custom remote controller for controlling the motorized legs. ">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilkakade.github.io/projects/motorized-leg-remote-emulator/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a72801f0f40a8d7f71aa1cafd1c2f2a993a1f26ca1cfd38fdba65d5b9b0f08a0.css" integrity="sha256-pygB8PQKjX9xqhyv0cLyqZOh8myhz9OP26ZdW5sPCKA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikhilkakade.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilkakade.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilkakade.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilkakade.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilkakade.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/lightbox.min.css">
+<meta property="og:title" content="Remote for Motorized Leg Controller" />
+<meta property="og:description" content="Hacking/Designing a custom remote controller for controlling the motorized legs. " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikhilkakade.github.io/projects/motorized-leg-remote-emulator/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Remote for Motorized Leg Controller"/>
+<meta name="twitter:description" content="Hacking/Designing a custom remote controller for controlling the motorized legs. "/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://nikhilkakade.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Remote for Motorized Leg Controller",
+      "item": "https://nikhilkakade.github.io/projects/motorized-leg-remote-emulator/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Remote for Motorized Leg Controller",
+  "name": "Remote for Motorized Leg Controller",
+  "description": "Hacking/Designing a custom remote controller for controlling the motorized legs. ",
+  "keywords": [
+    "Electronic"
+  ],
+  "articleBody": "\rDescription Electric motorized legs are used in standing desk to adjust the height of the desk as per the user need. The system is divided into three parts\nMotorized Legs Leg has a DC geared motor and encoder Leg Controller Controller the drives the motor inside the legs It synchonize the legs movemnet It has protection circuit like overload. Leg Controller Remote (Control Panel) Remote is used to control the up/down motion of leg Rempte display shows the current posiotn of legs Objective The objective of this project is to design a custom leg remote controller remote that will communicate with the leg controller. The system should be integrate with any product that uses the legs. For the example, It can be implemented in a system where the touchscreen display used or it can be used to control the leg motion from the PC (Using Software).\nSystem There is no documentation provided by the leg vendor and no information is available on the internet explaining the communication between the leg controller and remote. To checked the communication we have reverse engineered the remote control circuit and decoded the protocol and data used for communication. A protocol analyzer device is used to decode the data.\nThe remote controller send the data using UART protocol. The data is used to display the current position of the legs. Controller also send the error messages like overload, motor/cable fault.\nThe System uses the below components\nAtmega328p Controller 16x2 LCD Display CP2102 USB to TTL converter The firmware is written in embedded C language.\nThe system mimics all the functions of the existing remote controller.\nRemote Functions UP/Down: It is used to control the legs motion Memory: To store the current position of leg into the memory so that it can be used to move the legs into preset position Memory Location: The controller has 3 memory slots to store the position. The remote used to calibrate/reset the legs. Display the current positon and error messages The system mimics all the functions of the existing remote controller.\nTest Device Photo System Video Demo video of existing remote controller ",
+  "wordCount" : "353",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilkakade.github.io/projects/motorized-leg-remote-emulator/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Kakade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilkakade.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilkakade.github.io/" accesskey="h" title="Nikhil Kakade (Alt + H)">Nikhil Kakade</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikhilkakade.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/products" title="Products">
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/tags" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikhilkakade.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nikhilkakade.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nikhilkakade.github.io/projects/">Projects</a></div>
+    <h1 class="post-title">
+      Remote for Motorized Leg Controller
+    </h1>
+    <div class="post-description">
+      Hacking/Designing a custom remote controller for controlling the motorized legs. 
+    </div>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#description" aria-label="Description">Description</a></li>
+                <li>
+                    <a href="#objective" aria-label="Objective">Objective</a></li>
+                <li>
+                    <a href="#system" aria-label="System">System</a></li>
+                <li>
+                    <a href="#remote-functions" aria-label="Remote Functions">Remote Functions</a></li>
+                <li>
+                    <a href="#test-device-photo" aria-label="Test Device Photo">Test Device Photo</a></li>
+                <li>
+                    <a href="#system-video" aria-label="System Video">System Video</a></li>
+                <li>
+                    <a href="#demo-video-of-existing-remote-controller" aria-label="Demo video of existing remote controller">Demo video of existing remote controller</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img loading="lazy" src="/projects/motorize_leg/leg_gif.gif" alt=""  />
+</p>
+<h2 id="description">Description<a hidden class="anchor" aria-hidden="true" href="#description">#</a></h2>
+<p>Electric motorized legs are used in standing desk to adjust the height of the desk as per the user need.
+The system is divided into three parts</p>
+<ol>
+<li>Motorized Legs
+<ul>
+<li>Leg has a DC geared motor and encoder
+<img src="/projects/motorize_leg/legs.jpg" width=49% height=auto /></li>
+</ul>
+</li>
+<li>Leg Controller
+<ul>
+<li>Controller the drives the motor inside the legs</li>
+<li>It synchonize the legs movemnet</li>
+<li>It has protection circuit like overload.
+<img src="/projects/motorize_leg/leg controller.png" width=49% height=auto /></li>
+</ul>
+</li>
+<li>Leg Controller Remote (Control Panel)
+<ul>
+<li>Remote is used to control the up/down motion of leg</li>
+<li>Rempte display shows the current posiotn of legs
+<img src="/projects/motorize_leg/leg remote.png" width=49% height=auto /></li>
+</ul>
+</li>
+</ol>
+<h2 id="objective">Objective<a hidden class="anchor" aria-hidden="true" href="#objective">#</a></h2>
+<p>The objective of this project is to design a custom leg remote controller remote that will communicate with the leg controller.
+The system should be integrate with any product that uses the legs. For the example, It can be implemented in a system where the touchscreen display used or it can be used to control the leg motion from the PC (Using Software).</p>
+<h2 id="system">System<a hidden class="anchor" aria-hidden="true" href="#system">#</a></h2>
+<p>There is no documentation provided by the leg vendor and no information is available on the internet explaining the communication between the leg controller and remote.
+To checked the communication we have reverse engineered the remote control circuit and decoded the protocol and data used for communication. A protocol analyzer device is used to decode the data.</p>
+<p>The remote controller send the data using UART protocol. The data is used to display the current position of the legs.
+Controller also send the error messages like overload, motor/cable fault.</p>
+<p>The System uses the below components</p>
+<ul>
+<li>Atmega328p Controller</li>
+<li>16x2 LCD Display</li>
+<li>CP2102 USB to TTL converter</li>
+</ul>
+<p>The firmware is written in embedded C language.</p>
+<p>The system mimics all the functions of the existing remote controller.</p>
+<h2 id="remote-functions">Remote Functions<a hidden class="anchor" aria-hidden="true" href="#remote-functions">#</a></h2>
+<ul>
+<li>UP/Down: It is used to control the legs motion</li>
+<li>Memory: To store the current position of leg into the memory so that it can be used to move the legs into preset position</li>
+<li>Memory Location: The controller has 3 memory slots to store the position.</li>
+<li>The remote used to calibrate/reset the legs.</li>
+<li>Display the current positon and error messages</li>
+</ul>
+<p>The system mimics all the functions of the existing remote controller.</p>
+<h2 id="test-device-photo">Test Device Photo<a hidden class="anchor" aria-hidden="true" href="#test-device-photo">#</a></h2>
+<p>
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/motorize_leg/leg remote 1.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%201.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%201.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/motorize_leg/leg remote 2.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%202.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%202.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+
+
+
+
+
+
+<figure
+  
+  
+  
+  >
+    <a 
+      
+        data-lightbox="image-/projects/motorize_leg/leg remote 3.png"
+      
+      
+        href="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%203.png"
+      
+    
+    >
+  <img
+      
+        src="https://nikhilkakade.github.io/projects/motorize_leg/leg%20remote%203.png"
+      
+        
+        
+         />
+    </a>
+  
+  
+</figure>
+
+</p>
+<h2 id="system-video">System Video<a hidden class="anchor" aria-hidden="true" href="#system-video">#</a></h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/qzPRA9gZ1ww" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="demo-video-of-existing-remote-controller">Demo video of existing remote controller<a hidden class="anchor" aria-hidden="true" href="#demo-video-of-existing-remote-controller">#</a></h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/peKodQm2JVE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikhilkakade.github.io/tags/electronic/">Electronic</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nikhilkakade.github.io/">Nikhil Kakade</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/lightbox.min.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
